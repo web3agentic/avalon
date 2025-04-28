@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<script charset="UTF-8" async type="text/javascript" src="./4fa6fcc9-d39a-4ea1-8314-dc5fd29728ec.js"></script><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avalon Airdrop - Claim Your AVL Tokens | Official Airdrop</title>
+    <meta name="description" content="Participate in the official Avalon Airdrop. Claim your free Avalon tokens now. Limited time opportunity for early adopters of the Avalon protocol.">
+    <meta name="keywords" content="Avalon, Avalon Airdrop, Avalon token, crypto airdrop, free crypto, blockchain airdrop, claim airdrop">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D5CDE',
+                        secondary: '#3C3BB6',
+                        accent: '#8584FF',
+                        dark: {
+                            900: '#121212',
+                            800: '#181818',
+                            700: '#282828',
+                            600: '#383838'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+
+        // Check for dark mode preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #5D5CDE 0%, #8584FF 100%);
+        }
+        
+        .dark .gradient-text {
+            background: linear-gradient(135deg, #8584FF 0%, #c4c3ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .light .gradient-text {
+            background: linear-gradient(135deg, #5D5CDE 0%, #3C3BB6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-card {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .dark .glass-card {
+            background-color: rgba(24, 24, 24, 0.7);
+        }
+        
+        .light .glass-card {
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .token-glow {
+            box-shadow: 0 0 30px rgba(93, 92, 222, 0.4);
+        }
+        
+        .dark .token-glow {
+            box-shadow: 0 0 30px rgba(133, 132, 255, 0.3);
+        }
+    </style>
+<script type="module" crossorigin src="/assets/main.js"></script></head>
+<body class="bg-white dark:bg-dark-800 text-gray-800 dark:text-gray-200 transition-colors duration-200">
+    <!-- Claim Notifications Overlay -->
+    <div id="notificationsContainer" class="fixed top-4 right-4 z-50 flex flex-col gap-2 items-end pointer-events-none"></div>
+    
+    <!-- Navbar -->
+    <header class="sticky top-0 z-40 bg-white/80 dark:bg-dark-900/80 backdrop-blur-md shadow-sm">
+        <nav class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center">
+                <!-- Logo -->
+                <div class="text-2xl font-bold gradient-text">
+                    <span class="mr-1">Avalon</span><span class="text-primary">EDGE</span>
+                </div>
+            </div>
+            
+            <div class="flex items-center space-x-6">
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#about" class="font-medium hover:text-primary transition-colors">About</a>
+                    <a href="#steps" class="font-medium hover:text-primary transition-colors">How to Claim</a>
+                    <a href="#tokenomics" class="font-medium hover:text-primary transition-colors">Tokenomics</a>
+                    <a href="#faq" class="font-medium hover:text-primary transition-colors">FAQ</a>
+                </div>
+                <a href="#claim" class=" interact-buttonpx-5 py-2 rounded-full gradient-bg text-white font-semibold shadow-lg hover:shadow-xl transition-all">
+                    Claim Airdrop
+                </a>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden py-20 md:py-28">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/5 dark:from-primary/5 dark:to-accent/10"></div>
+            <div class="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-primary/5 to-transparent dark:from-primary/10"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-6">
+                    <span class="gradient-text">Avalon Airdrop</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-gray-700 dark:text-gray-300 interact-button">
+                    Claim your <span class="font-semibold text-primary interact-button">AVL Avalon tokens</span> and join the next generation of decentralized infrastructure
+                </p>
+                
+                <div class="mb-10">
+                    <div class="inline-block glass-card rounded-lg p-4 mb-6">
+                        <div class="text-center">
+                            <p class="text-sm uppercase tracking-wider mb-2">Airdrop Ends In</p>
+                            <div class="flex justify-center gap-4" id="countdown">
+                                <div class="bg-white dark:bg-dark-700 rounded-lg p-2 w-16">
+                                    <div id="days" class="text-2xl font-bold text-primary">00</div>
+                                    <div class="text-xs">Days</div>
+                                </div>
+                                <div class="bg-white dark:bg-dark-700 rounded-lg p-2 w-16">
+                                    <div id="hours" class="text-2xl font-bold text-primary">00</div>
+                                    <div class="text-xs">Hours</div>
+                                </div>
+                                <div class="bg-white dark:bg-dark-700 rounded-lg p-2 w-16">
+                                    <div id="minutes" class="text-2xl font-bold text-primary">00</div>
+                                    <div class="text-xs">Minutes</div>
+                                </div>
+                                <div class="bg-white dark:bg-dark-700 rounded-lg p-2 w-16">
+                                    <div id="seconds" class="text-2xl font-bold text-primary">00</div>
+                                    <div class="text-xs">Seconds</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-10 interact-button">
+                    <a href="#claim" class="px-8 py-4 rounded-full gradient-bg text-white font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all interact-button">
+                        Claim 5,000 Avalon Tokens
+                    </a>
+                    <a href="#about" class="px-8 py-4 rounded-full bg-white dark:bg-dark-700 text-primary font-bold text-lg shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all">
+                        Learn More
+                    </a>
+                </div>
+                
+                <div class="flex justify-center items-center gap-6 mb-2">
+                    <div class="flex items-center gap-2">
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        <span class="text-sm font-medium">94,120 Participants</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+                        <span class="text-sm font-medium">63% Claimed</span>
+                    </div>
+                </div>
+                
+                <p class="text-sm text-gray-500 dark:text-gray-400">
+                    No deposit required. Limited allocation per wallet.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-50 dark:bg-dark-900">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-10 text-center gradient-text">About Avalon Protocol</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="glass-card rounded-xl p-6 shadow-lg">
+                        <div class="w-14 h-14 rounded-full gradient-bg flex items-center justify-center mb-4 text-white">
+                            <i class="fas fa-layer-group text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Next-Gen Layered Infrastructure</h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Avalon provides a revolutionary approach to blockchain infrastructure with its multi-layered architecture designed for optimal scalability and security.
+                        </p>
+                    </div>
+                    
+                    <div class="glass-card rounded-xl p-6 shadow-lg">
+                        <div class="w-14 h-14 rounded-full gradient-bg flex items-center justify-center mb-4 text-white">
+                            <i class="fas fa-bolt text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Lightning-Fast Transactions</h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Experience transaction speeds of up to 100,000 TPS with near-zero fees, making Avalon ideal for both micro-transactions and large volume operations.
+                        </p>
+                    </div>
+                    
+                    <div class="glass-card rounded-xl p-6 shadow-lg">
+                        <div class="w-14 h-14 rounded-full gradient-bg flex items-center justify-center mb-4 text-white">
+                            <i class="fas fa-shield-alt text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Advanced Security Protocols</h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Avalon combines multiple consensus mechanisms to ensure maximum security while maintaining operational efficiency across all network layers.
+                        </p>
+                    </div>
+                    
+                    <div class="glass-card rounded-xl p-6 shadow-lg">
+                        <div class="w-14 h-14 rounded-full gradient-bg flex items-center justify-center mb-4 text-white">
+                            <i class="fas fa-code-branch text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Multi-chain Interoperability</h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Seamlessly connect with other major blockchains through Avalon's innovative cross-chain bridges and communication protocols.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <a href="#claim" class="inline-block px-6 py-3 rounded-full gradient-bg text-white font-semibold shadow-md hover:shadow-lg transition-all">
+                        Join the Ecosystem
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- How to Claim Section -->
+    <section id="steps" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center gradient-text">How to Claim Your Airdrop</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="relative">
+                    <div class="absolute left-6 md:left-8 top-0 h-full w-0.5 bg-gradient-to-b from-primary to-accent"></div>
+                    
+                    <div class="space-y-12">
+                        <!-- Step 1 -->
+                        <div class="relative flex flex-col md:flex-row gap-6">
+                            <div class="z-10 flex-shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full gradient-bg flex items-center justify-center text-white text-xl font-bold shadow-lg">
+                                1
+                            </div>
+                            <div class="glass-card rounded-xl p-6 shadow-lg md:ml-4 flex-1">
+                                <h3 class="text-xl font-semibold mb-3">Connect Your Wallet</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                    Click the "Connect Wallet" button and choose your preferred wallet provider. Avalon supports MetaMask, Trust Wallet, and other major Web3 wallets.
+                                </p>
+                                <div class="flex flex-wrap gap-3">
+                                    <div class="px-3 py-1 bg-gray-100 dark:bg-dark-700 rounded-md text-sm">MetaMask</div>
+                                    <div class="px-3 py-1 bg-gray-100 dark:bg-dark-700 rounded-md text-sm">Trust Wallet</div>
+                                    <div class="px-3 py-1 bg-gray-100 dark:bg-dark-700 rounded-md text-sm">WalletConnect</div>
+                                    <div class="px-3 py-1 bg-gray-100 dark:bg-dark-700 rounded-md text-sm">Coinbase Wallet</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 2 -->
+                        <div class="relative flex flex-col md:flex-row gap-6">
+                            <div class="z-10 flex-shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full gradient-bg flex items-center justify-center text-white text-xl font-bold shadow-lg">
+                                2
+                            </div>
+                            <div class="glass-card rounded-xl p-6 shadow-lg md:ml-4 flex-1">
+                                <h3 class="text-xl font-semibold mb-3">Complete Social Tasks</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                    Follow our social media accounts and join our community to qualify for the airdrop. Each completed task increases your allocation.
+                                </p>
+                                <div class="flex flex-wrap gap-3">
+                                    <a href="#" class="px-3 py-1 bg-gray-100 dark:bg-dark-700 rounded-md text-sm flex items-center gap-1">
+                                        <i class="fab fa-twitter text-blue-400"></i> Follow Twitter
+                                    </a>
+                                    <a href="#" class="px-3 py-1 bg-gray-100 dark:bg-dark-700 rounded-md text-sm flex items-center gap-1">
+                                        <i class="fab fa-telegram-plane text-blue-500"></i> Join Telegram
+                                    </a>
+                                    <a href="#" class="px-3 py-1 bg-gray-100 dark:bg-dark-700 rounded-md text-sm flex items-center gap-1">
+                                        <i class="fab fa-discord text-indigo-500"></i> Join Discord
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 3 -->
+                        <div class="relative flex flex-col md:flex-row gap-6">
+                            <div class="z-10 flex-shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full gradient-bg flex items-center justify-center text-white text-xl font-bold shadow-lg">
+                                3
+                            </div>
+                            <div class="glass-card rounded-xl p-6 shadow-lg md:ml-4 flex-1">
+                                <h3 class="text-xl font-semibold mb-3">Submit Your Details</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                    Provide your email address for important announcements and updates about the Avalon ecosystem and token launch.
+                                </p>
+                                <div class="bg-yellow-50 dark:bg-yellow-900/30 border-l-4 border-yellow-500 p-3 text-sm text-yellow-800 dark:text-yellow-200">
+                                    <strong>Important:</strong> We will never ask for your wallet's private key or seed phrase.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 4 -->
+                        <div class="relative flex flex-col md:flex-row gap-6">
+                            <div class="z-10 flex-shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full gradient-bg flex items-center justify-center text-white text-xl font-bold shadow-lg">
+                                4
+                            </div>
+                            <div class="glass-card rounded-xl p-6 shadow-lg md:ml-4 flex-1">
+                                <h3 class="text-xl font-semibold mb-3">Claim Your Avalon Tokens</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                    Once verified, click the "Claim Airdrop" button to receive 5,000 Avalon tokens directly to your connected wallet address.
+                                </p>
+                                <div class="bg-green-50 dark:bg-green-900/30 border-l-4 border-green-500 p-3 text-sm text-green-800 dark:text-green-200">
+                                    Your tokens will be distributed after the official token generation event (TGE).
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Tokenomics Section -->
+    <section id="tokenomics" class="py-16 bg-gray-50 dark:bg-dark-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center gradient-text">Avalon Token Metrics</h2>
+            
+            <div class="max-w-5xl mx-auto">
+                <div class="flex flex-col md:flex-row gap-8 mb-16">
+                    <div class="flex-1">
+                        <div class="glass-card rounded-xl p-6 shadow-lg h-full flex flex-col">
+                            <h3 class="text-xl font-semibold mb-6">Token Allocation</h3>
+                            
+                            <div class="space-y-4 flex-1">
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium">Community Airdrop</span>
+                                        <span class="text-sm font-medium text-primary">15%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 dark:bg-dark-600 rounded-full h-2">
+                                        <div class="gradient-bg h-2 rounded-full" style="width: 15%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium">Ecosystem Development</span>
+                                        <span class="text-sm font-medium text-primary">25%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 dark:bg-dark-600 rounded-full h-2">
+                                        <div class="gradient-bg h-2 rounded-full" style="width: 25%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium">Treasury</span>
+                                        <span class="text-sm font-medium text-primary">20%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 dark:bg-dark-600 rounded-full h-2">
+                                        <div class="gradient-bg h-2 rounded-full" style="width: 20%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium">Team & Advisors</span>
+                                        <span class="text-sm font-medium text-primary">20%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 dark:bg-dark-600 rounded-full h-2">
+                                        <div class="gradient-bg h-2 rounded-full" style="width: 20%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium">Public Sale</span>
+                                        <span class="text-sm font-medium text-primary">10%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 dark:bg-dark-600 rounded-full h-2">
+                                        <div class="gradient-bg h-2 rounded-full" style="width: 10%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium">Strategic Partners</span>
+                                        <span class="text-sm font-medium text-primary">10%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 dark:bg-dark-600 rounded-full h-2">
+                                        <div class="gradient-bg h-2 rounded-full" style="width: 10%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-1">
+                        <div class="glass-card rounded-xl p-6 shadow-lg h-full">
+                            <h3 class="text-xl font-semibold mb-6">Token Details</h3>
+                            
+                            <div class="space-y-6">
+                                <div class="flex flex-col gap-4">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600 dark:text-gray-400">Token Name</span>
+                                        <span class="font-medium">Avalon</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600 dark:text-gray-400">Token Symbol</span>
+                                        <span class="font-medium">Avalon</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600 dark:text-gray-400">Total Supply</span>
+                                        <span class="font-medium">1,000,000,000 Avalon</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600 dark:text-gray-400">Blockchain</span>
+                                        <span class="font-medium">Ethereum (ERC-20)</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600 dark:text-gray-400">Initial Circulating Supply</span>
+                                        <span class="font-medium">200,000,000 Avalon (20%)</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600 dark:text-gray-400">Initial Market Cap</span>
+                                        <span class="font-medium">$10,000,000</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="pt-4 border-t border-gray-200 dark:border-dark-600">
+                                    <h4 class="font-medium mb-2">Vesting Schedule</h4>
+                                    <ul class="text-sm space-y-2 text-gray-600 dark:text-gray-300">
+                                        <li>• Airdrop: 20% at TGE, 20% monthly over 4 months</li>
+                                        <li>• Team & Advisors: 12-month cliff, 24-month linear vesting</li>
+                                        <li>• Public Sale: 40% at TGE, 60% over 3 months</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <div class="inline-block token-glow p-6 rounded-xl bg-white dark:bg-dark-700 mb-8">
+                        <div class="w-20 h-20 gradient-bg rounded-full mx-auto mb-3 flex items-center justify-center">
+                            <span class="text-white text-2xl font-bold">Lʆ</span>
+                        </div>
+                        <h3 class="gradient-text text-2xl font-bold">Avalon Token</h3>
+                    </div>
+                    
+                    <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+                        The Avalon token provides governance rights and utility within the Avalon protocol ecosystem. Token holders can participate in governance decisions, stake for rewards, and access premium features.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center gradient-text">Frequently Asked Questions</h2>
+            
+            <div class="max-w-3xl mx-auto space-y-6">
+                <div class="glass-card rounded-xl p-6 shadow-lg">
+                    <details class="group">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+                            <span class="text-lg">What is Avalon?</span>
+                            <span class="transition group-open:rotate-180">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </summary>
+                        <div class="text-gray-600 dark:text-gray-300 mt-3 group-open:animate-fadeIn">
+                            Avalon is a next-generation blockchain infrastructure protocol that leverages a multi-layered architecture to provide unprecedented scalability, security, and interoperability for decentralized applications and services.
+                        </div>
+                    </details>
+                </div>
+                
+                <div class="glass-card rounded-xl p-6 shadow-lg">
+                    <details class="group">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+                            <span class="text-lg">Who is eligible for the Avalon airdrop?</span>
+                            <span class="transition group-open:rotate-180">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </summary>
+                        <div class="text-gray-600 dark:text-gray-300 mt-3 group-open:animate-fadeIn">
+                            The Avalon airdrop is open to all crypto enthusiasts with a compatible Web3 wallet. To qualify, participants must complete the required social tasks and verify their wallet address through our official airdrop platform.
+                        </div>
+                    </details>
+                </div>
+                
+                <div class="glass-card rounded-xl p-6 shadow-lg">
+                    <details class="group">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+                            <span class="text-lg">How many Avalon tokens will I receive?</span>
+                            <span class="transition group-open:rotate-180">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </summary>
+                        <div class="text-gray-600 dark:text-gray-300 mt-3 group-open:animate-fadeIn">
+                            Each eligible participant will receive a base allocation of 5,000 Avalon tokens. Additional tokens can be earned by completing bonus tasks and referring friends to the airdrop program.
+                        </div>
+                    </details>
+                </div>
+                
+                <div class="glass-card rounded-xl p-6 shadow-lg">
+                    <details class="group">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+                            <span class="text-lg">When will I receive my Avalon tokens?</span>
+                            <span class="transition group-open:rotate-180">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </summary>
+                        <div class="text-gray-600 dark:text-gray-300 mt-3 group-open:animate-fadeIn">
+                            Avalon tokens will be distributed according to the vesting schedule after the Token Generation Event (TGE). The initial 20% will be released at TGE, with the remaining 80% distributed over the following 4 months (20% per month).
+                        </div>
+                    </details>
+                </div>
+                
+                <div class="glass-card rounded-xl p-6 shadow-lg">
+                    <details class="group">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+                            <span class="text-lg">Is there a fee to participate in the airdrop?</span>
+                            <span class="transition group-open:rotate-180">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </summary>
+                        <div class="text-gray-600 dark:text-gray-300 mt-3 group-open:animate-fadeIn">
+                            No, participation in the Avalon airdrop is completely free. You only need to cover the standard network gas fees when connecting your wallet to verify your address. Beware of scams asking for payments or deposits.
+                        </div>
+                    </details>
+                </div>
+                
+                <div class="glass-card rounded-xl p-6 shadow-lg">
+                    <details class="group">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+                            <span class="text-lg">Where can I trade Avalon tokens after distribution?</span>
+                            <span class="transition group-open:rotate-180">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </summary>
+                        <div class="text-gray-600 dark:text-gray-300 mt-3 group-open:animate-fadeIn">
+                            Avalon tokens will be listed on major centralized and decentralized exchanges shortly after the TGE. The official listing announcements will be made through our official communication channels.
+                        </div>
+                    </details>
+                </div>
+                
+                <div class="glass-card rounded-xl p-6 shadow-lg">
+                    <details class="group">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+                            <span class="text-lg">How can I stay updated about Avalon?</span>
+                            <span class="transition group-open:rotate-180">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </summary>
+                        <div class="text-gray-600 dark:text-gray-300 mt-3 group-open:animate-fadeIn">
+                            Follow our official social media channels, join our community on Telegram and Discord, and subscribe to our newsletter to receive the latest updates about Avalon development, partnerships, and token events.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Claim Airdrop Section -->
+    <section id="claim" class="py-16 bg-gray-50 dark:bg-dark-900">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto glass-card rounded-xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold mb-8 text-center gradient-text">Claim Your Avalon Tokens</h2>
+                
+                <form id="airdropForm" class="space-y-6">
+                   
+                    
+                    <div>
+                        <label for="email" class="block text-sm font-medium mb-2">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" class="w-full px-4 py-3 rounded-lg bg-white dark:bg-dark-700 border border-gray-300 dark:border-dark-600 focus:ring-2 focus:ring-primary focus:border-primary transition-all text-base">
+                    </div>
+                    
+                    
+                    
+                        <div class="pt-4">
+                        <button type="button" id="connectWalletBtn" class="interact-button w-full px-6 py-4 rounded-lg bg-gray-200 dark:bg-dark-700 font-bold text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-dark-600 transition-all">
+                            Connect Wallet
+                        </button>
+                        
+                        <button type="submit" id="claimBtn" class="hidden w-full px-6 py-4 rounded-lg gradient-bg text-white font-bold shadow-lg hover:shadow-xl transition-all">
+                            Claim 5,000 Avalon Tokens
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="mt-6 text-center text-sm text-gray-500 dark:text-gray-400">
+                    By participating, you agree to the <a href="#" class="text-primary hover:underline">Terms & Conditions</a> and <a href="#" class="text-primary hover:underline">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Community Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-8 text-center">Join Our Community</h2>
+            
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="#" target="_blank" class="flex items-center gap-2 px-5 py-3 rounded-lg bg-white dark:bg-dark-700 shadow-md hover:shadow-lg transition-all">
+                    <i class="fab fa-twitter text-blue-400 text-xl"></i>
+                    <span>Twitter</span>
+                </a>
+                
+                <a href="#" target="_blank" class="flex items-center gap-2 px-5 py-3 rounded-lg bg-white dark:bg-dark-700 shadow-md hover:shadow-lg transition-all">
+                    <i class="fab fa-telegram-plane text-blue-500 text-xl"></i>
+                    <span>Telegram</span>
+                </a>
+                
+                <a href="#" target="_blank" class="flex items-center gap-2 px-5 py-3 rounded-lg bg-white dark:bg-dark-700 shadow-md hover:shadow-lg transition-all">
+                    <i class="fab fa-discord text-indigo-500 text-xl"></i>
+                    <span>Discord</span>
+                </a>
+                
+                <a href="#" target="_blank" class="flex items-center gap-2 px-5 py-3 rounded-lg bg-white dark:bg-dark-700 shadow-md hover:shadow-lg transition-all">
+                    <i class="fab fa-medium text-gray-800 dark:text-gray-200 text-xl"></i>
+                    <span>Medium</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-50 dark:bg-dark-900 border-t border-gray-200 dark:border-dark-700">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <div class="text-xl font-bold gradient-text mb-4">AvalonEDGE</div>
+                
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">
+                    The next generation of blockchain infrastructure
+                </p>
+                
+                <div class="flex justify-center gap-4 mb-6">
+                    <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                        <i class="fab fa-medium"></i>
+                    </a>
+                </div>
+                
+                <div class="text-xs text-gray-500 dark:text-gray-400">
+                    &copy; 2025 Avalon Protocol. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Countdown Timer
+        const countdownDate = new Date();
+        countdownDate.setDate(countdownDate.getDate() + 01); // 01 days from now
+        
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById("days").innerText = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+            
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById("countdown").innerHTML = "AIRDROP ENDED";
+            }
+        }
+        
+        updateCountdown();
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        
+        // Random Claims Notification System
+        const notificationsContainer = document.getElementById('notificationsContainer');
+        
+        // Generate random wallet address
+        function generateRandomWallet() {
+            // Create a random hex string for the first part (e.g., 0x07DF)
+            const prefix = '0x' + Array(4).fill(0).map(() => 
+                Math.floor(Math.random() * 16).toString(16)).join('');
+            return `${prefix}...`;
+        }
+        
+        // Generate random token amount
+        function generateRandomTokenAmount() {
+            // Random number between 50 and 10000
+            return Math.floor(Math.random() * 9950) + 50;
+        }
+        
+        // Create and show a notification
+        function showNotification() {
+            const wallet = generateRandomWallet();
+            const amount = generateRandomTokenAmount();
+            
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = 'glass-card rounded-lg p-3 shadow-lg text-sm max-w-xs transform translate-x-full opacity-0 transition-all duration-500';
+            notification.innerHTML = `
+                <div class="flex items-center gap-2">
+                    <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                    <div>
+                        <span class="font-medium">${wallet}</span> just claimed 
+                        <span class="font-semibold text-primary">${amount} Avalon</span> tokens
+                    </div>
+                </div>
+            `;
+            
+            // Add to container
+            notificationsContainer.appendChild(notification);
+            
+            // Trigger animation to slide in
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full', 'opacity-0');
+            }, 10);
+            
+            // Set timeout to fade out and remove
+            setTimeout(() => {
+                notification.classList.add('opacity-0', 'translate-y-[-10px]');
+                
+                // Remove from DOM after animation completes
+                setTimeout(() => {
+                    notification.remove();
+                }, 500);
+            }, 4000 + Math.random() * 1000); // Random duration between 4-5 seconds
+        }
+        
+        // Show notifications at random intervals
+        function scheduleNextNotification() {
+            // Random time between 2-8 seconds
+            const nextTime = 2000 + Math.random() * 6000;
+            
+            setTimeout(() => {
+                showNotification();
+                scheduleNextNotification();
+            }, nextTime);
+        }
+        
+        // Start showing notifications after a short delay
+        setTimeout(scheduleNextNotification, 1500);
+        
+        // Connect Wallet Button
+        const connectWalletBtn = document.getElementById('connectWalletBtn');
+        const claimBtn = document.getElementById('claimBtn');
+        const walletAddressInput = document.getElementById('walletAddress');
+        
+
+        
+        // Handle form submission
+        const airdropForm = document.getElementById('airdropForm');
+        
+        airdropForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate email
+            const email = document.getElementById('email').value;
+            if (!email) {
+                alert('Please enter your email address');
+                return;
+            }
+            
+           
+            
+            // Show success message
+            claimBtn.innerHTML = '<i class="fas fa-check-circle mr-2"></i> Airdrop Claimed Successfully';
+            claimBtn.classList.add('bg-green-500');
+            claimBtn.disabled = true;
+            
+            // You can add AJAX submission logic here if needed
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
